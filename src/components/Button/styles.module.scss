@@ -1,0 +1,15 @@
+@import '@styles/mixins.module.scss';
+@import '@styles/variables.module.scss';
+
+
+.btn{
+    @include btn(176px,42px,#000,5px);
+    color:#fff;
+    cursor: pointer;
+
+    &:hover {
+        background-color:transparent;
+        color: #000;
+        border: 1px solid $primary_color;
+    }
+}

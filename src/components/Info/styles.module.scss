@@ -1,0 +1,33 @@
+@import '@styles/mixins.module.scss';
+@import '@styles/variables.module.scss';
+.container {
+    position: relative;
+
+    background-color: #333;
+    margin-top: -75px;
+    z-index: 10000;
+    padding: 20px 50px;
+    display: flex;
+    @include flex_box_custom(space-between, center, 0px);
+}
+.containerCard {
+    width: 280px;
+    height: 104px;
+    @include flex_box_custom(center, center, 15px);
+}
+
+.containerContent {
+    @include flex_box_custom(center, flex-start, 11px);
+    flex-direction: column;
+    color: #FFF;
+    font-weight: 300;
+    .title {
+        font-size: 17px;
+        
+    }
+    .decs {
+        font-size: 16px;
+        color: #ffffffc7;
+    }
+    
+}

@@ -1,20 +1,28 @@
 import MainLayout from '@components/Layout/Layout';
-import styles from "./styles.module.scss";
-import CountdowtTimer from '@components/CountdownTimer/CountdownTimer';
+import styles from './styles.module.scss';
 import CountdownBanner from '@components/CountdownBanner/CountdownBanner';
-function HeadingListProduct() {
-    const { container,containerItem } = styles;
-   
-    return <MainLayout>
-        {/* <CountdowtTimer targetDate={targetDate}/> */}
-        <div className={container}>
-            <CountdownBanner/>
-            <div className={containerItem}> 
-                <div>1</div>
-                <div>2</div>
+import ProductItem from '@components/ProductItem/ProductItem';
+function HeadingListProduct({ data }) {
+    const { container, containerItem } = styles;
+  
+    return (
+        <MainLayout>
+            <div className={container}>
+                <CountdownBanner />
+                <div className={containerItem}>
+                    {data.map((item) => (
+                        <ProductItem
+                            key={item.id}
+                            src={item.images[0]}
+                            preSrc={item.images[1]}
+                            name={item.name}
+                            prices={item.price}
+                        />
+                    ))}
+                </div>
             </div>
-        </div>
-    </MainLayout>;
+        </MainLayout>
+    );
 }
 
 export default HeadingListProduct;

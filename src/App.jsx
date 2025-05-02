@@ -1,18 +1,32 @@
-import MainLayout from '@components/Layout/Layout';
-
 import './assets/styles/_global.module.scss';
-import MyHeader from '@components/Header/Header';
-import Banner from '@components/Banner/Banner';
-import HomePage from '@components/HomePage/HomePage';
-import Info from '@components/Info/Info';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import routers from '@/routers/routers';
+import { Suspense } from 'react';
+import LoadingSpinner from '@components/Loading/Loading';
+import { SideBarProvider } from '@/contexts/SideBarProvider';
+import SideBar from '@components/SideBar/SideBar';
 
 function App() {
     return (
-        <>
-            <HomePage/>
-       
-
-        </>
+        <SideBarProvider>
+            <SideBar />
+            <BrowserRouter>
+                <Suspense fallback={<LoadingSpinner />}>
+                    <Routes>
+                        {routers.map((item, index) => {
+                            const Component = item.conponent;
+                            return (
+                                <Route
+                                    key={index}
+                                    path={item.path}
+                                    element={<Component />}
+                                />
+                            );
+                        })}
+                    </Routes>
+                </Suspense>
+            </BrowserRouter>
+        </SideBarProvider>
     );
 }
 

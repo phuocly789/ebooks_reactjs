@@ -1,10 +1,18 @@
 import Button from '@components/Button/Button';
 import styles from './styles.module.scss';
+import useTransLateXImg from "../../hooks/useScrollHanding"
+import { use } from 'react';
 function SaleHomepage() {
-    const { container ,title ,description,boxBtn,boxImage} = styles;
+    const { container, title, description, boxBtn, boxImage } = styles;
+    const { translateXPosition } = useTransLateXImg();
+    // console.log(translateXPosition);
     return (
         <div className={container}>
-            <div className={boxImage}>
+            <div className={boxImage}
+                style={{
+                    transform: `translateX(${translateXPosition}px)`,
+                    transition: 'transform 0.5s ease-in-out',
+                }}>
                 <img
                     src='https://xstore.b-cdn.net/elementor2/marseille04/wp-content/uploads/sites/2/2022/12/Image-2.4-min.jpg'
                     alt=''
@@ -21,7 +29,7 @@ function SaleHomepage() {
                     <Button content={'Read more'} />
                 </div>
             </div>
-            <div className={boxImage}>  
+            <div className={boxImage}>
                 <img
                     src='https://xstore.b-cdn.net/elementor2/marseille04/wp-content/uploads/sites/2/2022/12/Image-12.1-min.jpg'
                     alt=''

@@ -1,0 +1,47 @@
+@import '@styles/mixins.module.scss';
+@import '@styles/variables.module.scss';
+
+.container {
+    position: relative;
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(3, 3, 20, 0.3);
+        z-index: 10000;
+        // opacity: 0;
+        transition: all 0.3s ease;
+    }
+    .sideBar {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 370px;
+        height: 100vh;
+        background-color: white;
+        z-index: 10001;
+        transform: translateX(370px);
+        transition: all 0.3s ease;
+    }
+    .slideSideBar {
+        transform: translateX(0px);
+    }
+    .boxIcon{
+        position: absolute;
+        top: 30px;
+        left: -70px;
+        width: 50px;
+        height: 50px;
+        background-color:white;
+        border-radius: 50%;
+        @include flex_box_custom(center,center,0);
+        cursor: pointer;
+        &:hover{
+            background-color: #cccccc;
+            transition: 0.2s;
+        }
+    }
+}

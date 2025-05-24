@@ -53,8 +53,9 @@ function MyHeader() {
 
   useEffect(() => {
     setFixedPosition(scrollPosition > 80);
+    
   }, [scrollPosition]);
-
+  
   // Chia menu thành bên trái và bên phải dựa trên trạng thái đăng nhập
   const leftMenuItems = userInfo
     ? dataMenu.filter((item) => ['Our Shop', 'About us', 'Contacts'].includes(item.content))

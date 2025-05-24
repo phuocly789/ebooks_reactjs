@@ -316,7 +316,7 @@ function DetailProduct() {
                                                         !sizeSelected &&
                                                         activeDisabledBtn
                                                     }
-                                                    onClick={handleQuickCheckout}
+                                                    onClick={handleAdd}
                                                 />
                                             </div>
                                         </div>

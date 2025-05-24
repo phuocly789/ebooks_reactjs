@@ -1,3 +1,6 @@
+@import '@styles/mixin.module.scss';
+@import '@styles/variable.module.scss';
+
 .checkoutContainer {
   max-width: 800px;
   margin: 0 auto;
@@ -21,4 +24,127 @@
 .orderSummary h4 {
   margin-top: 20px;
   font-size: 18px;
+}
+.checkoutContainer {
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+
+    h2 {
+        font-size: 28px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: $four_color;
+    }
+
+    .orderSummary {
+        margin-bottom: 30px;
+        border: 1px solid #e1e1e1;
+        padding: 20px;
+        border-radius: 8px;
+
+        h3 {
+            font-size: 20px;
+            font-weight: 500;
+            margin-bottom: 15px;
+            color: $seconddary_color;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 15px;
+
+            li {
+                font-size: 16px;
+                margin-bottom: 8px;
+                color: $thr_color;
+            }
+        }
+
+        h4 {
+            font-size: 18px;
+            font-weight: 500;
+            color: $four_color;
+        }
+
+        p {
+            color: $thr_color;
+        }
+    }
+
+    .successLink {
+        margin-top: 16px;
+        text-align: center;
+
+        a {
+            color: green;
+            font-weight: 500;
+            text-decoration: underline;
+            cursor: pointer;
+
+            &:hover {
+                color: darkgreen;
+            }
+        }
+    }
+
+    .modalOverlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 50;
+    }
+
+    .modalContent {
+        background-color: white;
+        padding: 24px;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        max-width: 400px;
+        width: 100%;
+
+        h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        p {
+            font-size: 14px;
+            color: $thr_color;
+            margin-bottom: 16px;
+        }
+
+        .modalActions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+
+            .cancelBtn {
+                padding: 8px 16px;
+                background-color: #e0e0e0;
+                color: #333;
+                border-radius: 4px;
+
+                &:hover {
+                    background-color: #d5d5d5;
+                }
+            }
+
+            .confirmBtn {
+                padding: 8px 16px;
+                background-color: $primary_color;
+                color: #fff;
+                border-radius: 4px;
+
+                &:hover {
+                    background-color: darken($primary_color, 10%);
+                }
+            }
+        }
+    }
 }

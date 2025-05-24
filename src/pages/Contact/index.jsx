@@ -4,8 +4,10 @@ import MainLayout from '@components/Layout/Layout';
 import styles from './styles.module.scss';
 import Logos from '@/pages/AboutUs/components/Logos';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 
 function Contact() {
+  const [isMapLoading, setIsMapLoading] = useState(true);
   const {
     container,
     functionBox,
@@ -51,6 +53,8 @@ function Contact() {
 
           <div className={containerContent}>
             <div className={miniMap}>
+              {isMapLoading && <div className={styles.spinner}></div>}
+
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.097924244307!2d106.62541297452019!3d11.03127945444224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d220690c1ff5%3A0xba40ea2a923a1a2f!2zNzg5IE5ndXnhu4VuIENow60gVGhhbmgsIFTDom4gQW4sIFRo4bunIEThuqd1IE3hu5l0LCBCw6xuaCBExrDGoW5nLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1748054754766!5m2!1svi!2s"
                 width="500"
@@ -59,6 +63,7 @@ function Contact() {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
+                onLoad={() => setIsMapLoading(false)}
               ></iframe>
             </div>
 

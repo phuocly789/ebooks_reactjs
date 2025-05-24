@@ -3,13 +3,16 @@ import styles from '../styles.module.scss';
 import { SideBarContext } from '@/contexts/SideBarProvider';
 import { StoreContext } from '@/contexts/storeProvider';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Menu({ content, href }) {
   const { menu, subMenu } = styles;
   const { setIsOpen, setType } = useContext(SideBarContext);
   const { userInfo, handleLogOut } = useContext(StoreContext);
   const [isShowSubMenu, setIsShowSubMenu] = useState(false);
+  const location = useLocation();
+  const isActive = location.pathname === href;
+
   const navigate = useNavigate();
 
   const handleClickShowLogin = () => {
@@ -43,7 +46,7 @@ function Menu({ content, href }) {
 
   return (
     <div
-      className={menu}
+      className={`${menu} ${isActive ? styles.active : ''}`}
       onMouseEnter={handleHover}
       onClick={handleClickShowLogin}
     >

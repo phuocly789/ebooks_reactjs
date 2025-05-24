@@ -4,12 +4,12 @@ import HeaderSideBar from '@components/ContentSideBar/components/HeaderSidebar/H
 import ItemProduct from '@components/ContentSideBar/components/ItemProduct/ItemProduct';
 import LoadingTextCommon from '@components/LoadingTextCommon/LoadingTextCommon';
 import cls from 'classnames';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { PiShoppingCartLight } from 'react-icons/pi';
 import { useNavigate } from 'react-router-dom';
 import styles from './styles.module.scss';
-
 function Cart() {
+    const [isLoadingBtnBuyNow, setIsLoadingBtnBuyNow] = useState(false);
     const {
         container,
         total,
@@ -40,7 +40,22 @@ function Cart() {
         navigate('/cart');
         setIsOpen(false);
     };
-
+    const handleQuickCheckout = () => {
+        if (!sizeSelected) {
+            toast.error('Vui lòng chọn kích thước!');
+            return;
+        }
+        navigate('/checkout', {
+            state: {
+                product: {
+                    ...data,
+                    quantity,
+                    size: sizeSelected,
+                    total: data?.price * quantity,
+                },
+            },
+        });
+    };
     return (
         <div
             className={cls(container, {
@@ -92,7 +107,21 @@ function Cart() {
                                 content={'VIEW CART'}
                                 onClick={handleNavigateToCart}
                             />
-                            <Button content={'CHECKOUT'} isPriamry={false} />
+                            {/* <Button
+                                content={
+                                    isLoadingBtnBuyNow ? (
+                                        <LoadingTextCommon />
+                                    ) : (
+                                        'Buy now'
+                                    )
+                                }
+                                onClick={handleQuickCheckout}
+                                customClassname={
+                                    !sizeSelected &&
+                                    activeDisabledBtn
+                                }
+
+                            /> */}
                         </div>
                     </div>
                 </div>

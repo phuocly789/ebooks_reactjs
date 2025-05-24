@@ -143,18 +143,12 @@ function DetailProduct() {
 
             <div className={boxOr}>
                 <div className={line} />
-                <div className={or}>OR</div>
+                {/* <div className={or}>OR</div> */}
                 <div className={line} />
             </div>
 
-            <Button
-                content={
-                    <div>
-                        <PiShoppingCartThin /> SELECT OPTIONS
-                    </div>
-                }
-            />
-
+         
+{/* 
             <div className={boxAddOther}>
                 <TfiReload style={{ fontSize: '23px' }} />
                 <div>Add to compare</div>
@@ -163,7 +157,7 @@ function DetailProduct() {
             <div className={boxAddOther}>
                 <CiHeart style={{ fontSize: '25px' }} />
                 <div>Add to wishlist</div>
-            </div>
+            </div> */}
 
             <div className={boxFooter}>
                 SKU: <span>12349</span>

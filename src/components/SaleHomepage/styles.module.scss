@@ -3,6 +3,7 @@
 
 .container {
     @include flex_box_custom(space-between, center, 0px);
+    overflow: hidden;
 
     margin-top: 100px;
 

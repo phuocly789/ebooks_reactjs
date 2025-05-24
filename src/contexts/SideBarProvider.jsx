@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { createContext } from 'react';
-import { getCart } from '@/apis/cartService';
+import { getCart } from '@/api/cartService';
 import { useEffect } from 'react';
 import Cookies from 'js-cookie';
 import { useParams } from 'react-router-dom';

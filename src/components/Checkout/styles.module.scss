@@ -1,0 +1,24 @@
+.checkoutContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.orderSummary {
+  margin-bottom: 20px;
+}
+
+.orderSummary ul {
+  list-style: none;
+  padding: 0;
+}
+
+.orderSummary li {
+  padding: 10px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.orderSummary h4 {
+  margin-top: 20px;
+  font-size: 18px;
+}

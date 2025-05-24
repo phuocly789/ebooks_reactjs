@@ -110,3 +110,43 @@
         }
     }
 }
+.containerFilter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.boxLeft {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.searchInput {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+    font-size: 14px;
+}
+
+.boxIcon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.selectBox {
+    margin-left: 10px;
+}
+
+.show {
+    font-size: 14px;
+    color: #555;
+}
+
+.sort {
+    font-size: 14px;
+    color: #555;
+}

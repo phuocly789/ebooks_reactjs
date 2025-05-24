@@ -105,10 +105,10 @@ function MyHeader() {
             ))}
           </div>
           <div className={containerBoxIcon}>
-            <BsHeart
+            {/* <BsHeart
               style={{ fontSize: '20px' }}
               onClick={() => handleOpenSideBar('wishlist')}
-            />
+            /> */}
             <div className={boxCart}>
               <PiShoppingCart
                 style={{ fontSize: '25px' }}

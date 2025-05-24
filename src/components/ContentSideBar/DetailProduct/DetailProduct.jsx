@@ -11,7 +11,7 @@ import { FaXTwitter } from 'react-icons/fa6';
 import { FaFacebookF } from 'react-icons/fa';
 import { useState } from 'react';
 import cls from 'classnames';
-import { addProductToCart } from '@/apis/cartService';
+import { addProductToCart } from '@/api/cartService';
 
 function DetailProduct() {
     const {

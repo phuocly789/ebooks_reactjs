@@ -1,4 +1,4 @@
-import { deleteItem } from '@/apis/cartService';
+import { deleteItem } from '@/api/cartService';
 import styles from './styles.module.scss';
 import { IoCloseOutline } from 'react-icons/io5';
 import { useState } from 'react';

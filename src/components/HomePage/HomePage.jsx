@@ -1,4 +1,4 @@
-import { getProducts } from '@/apis/productsService';
+import { getProducts } from '@/api/productsService';
 import AdvanceHeadling from '@components/AdvanceHeadling/AdvanceHeadling';
 import Banner from '@components/Banner/Banner';
 import MyFooter from '@components/Footer/Footer';

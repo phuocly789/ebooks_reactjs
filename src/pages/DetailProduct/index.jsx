@@ -1,4 +1,4 @@
-import { getDetailProduct, getRelatedProduct } from '@/apis/productsService';
+import { getDetailProduct, getRelatedProduct } from '@/api/productsService';
 import InformationProduct from '@/pages/DetailProduct/components/Infomation';
 import ReviewProduct from '@/pages/DetailProduct/components/Review';
 import { handleAddProductToCartCommon } from '@/utils/helper';
@@ -21,7 +21,7 @@ import { useContext } from 'react';
 import { SideBarContext } from '@/contexts/SideBarProvider';
 import { ToastContext } from '@/contexts/ToastProvider';
 import Cookies from 'js-cookie';
-import { addProductToCart } from '@/apis/cartService';
+import { addProductToCart } from '@/api/cartService';
 
 const INCREMENT = 'increment';
 const DECREMENT = 'decrement';
@@ -92,6 +92,22 @@ function DetailProduct() {
             />
         );
     };
+    const handleQuickCheckout = () => {
+        if (!sizeSelected) {
+            toast.error('Vui lòng chọn kích thước!');
+            return;
+        }
+        navigate('/checkout', {
+            state: {
+                product: {
+                    ...data,
+                    quantity,
+                    size: sizeSelected,
+                    total: data?.price * quantity,
+                },
+            },
+        });
+    };
 
     const handleSetMenuSelected = (id) => {
         setMenuSelected(id);
@@ -154,26 +170,26 @@ function DetailProduct() {
         );
     };
 
-    const handleBuyNow = () => {
-        const data = {
-            userId,
-            productId: param.id,
-            quantity,
-            size: sizeSelected
-        };
+    // const handleBuyNow = () => {
+    //     const data = {
+    //         userId,
+    //         productId: param.id,
+    //         quantity,
+    //         size: sizeSelected
+    //     };
 
-        setIsLoadingBtnBuyNow(true);
-        addProductToCart(data)
-            .then((res) => {
-                toast.success('Add Product to cart successfully!');
-                setIsLoadingBtnBuyNow(false);
-                navigate('/cart');
-            })
-            .catch((err) => {
-                toast.error('Add Product to cart failed!');
-                setIsLoadingBtnBuyNow(false);
-            });
-    };
+    //     setIsLoadingBtnBuyNow(true);
+    //     addProductToCart(data)
+    //         .then((res) => {
+    //             toast.success('Add Product to cart successfully!');
+    //             setIsLoadingBtnBuyNow(false);
+    //             navigate('/cart');
+    //         })
+    //         .catch((err) => {
+    //             toast.error('Add Product to cart failed!');
+    //             setIsLoadingBtnBuyNow(false);
+    //         });
+    // };
 
     useEffect(() => {
         if (param.id) {
@@ -300,7 +316,7 @@ function DetailProduct() {
                                                         !sizeSelected &&
                                                         activeDisabledBtn
                                                     }
-                                                    onClick={handleAdd}
+                                                    onClick={handleQuickCheckout}
                                                 />
                                             </div>
                                         </div>
@@ -320,15 +336,16 @@ function DetailProduct() {
                                                         'Buy now'
                                                     )
                                                 }
+                                                onClick={handleQuickCheckout}
                                                 customClassname={
                                                     !sizeSelected &&
                                                     activeDisabledBtn
                                                 }
-                                                onClick={handleBuyNow}
+
                                             />
                                         </div>
 
-                                        <div className={addFunc}>
+                                        {/* <div className={addFunc}>
                                             <div>
                                                 <CiHeart />
                                             </div>
@@ -336,7 +353,7 @@ function DetailProduct() {
                                             <div>
                                                 <TfiReload />
                                             </div>
-                                        </div>
+                                        </div> */}
 
                                         <div>
                                             <PaymentMethods />

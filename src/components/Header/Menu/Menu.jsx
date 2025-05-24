@@ -19,7 +19,11 @@ function Menu({ content, href }) {
 
       return;
     }
-
+    if (content === 'Search') {
+      // điều hướng sang /shop và truyền state báo focus input
+      navigate('/shop', { state: { focusSearchInput: true } });
+      return;
+    }
     navigate(href);
   };
 

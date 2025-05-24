@@ -4,11 +4,11 @@ import CartSummary from '@/pages/Cart/components/contents/CartSummary';
 import Button from '@components/Button/Button';
 import { useContext } from 'react';
 import { SideBarContext } from '@/contexts/SideBarProvider';
-import { addProductToCart, deleteItem, deleteCart } from '@/apis/cartService';
+import { addProductToCart, deleteItem, deleteCart } from '@/api/cartService';
 import { PiShoppingCartLight } from 'react-icons/pi';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
-import { getCart } from '@/apis/cartService';
+import { getCart } from '@/api/cartService';
 
 function Contents() {
     const {

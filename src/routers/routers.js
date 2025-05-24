@@ -1,3 +1,4 @@
+
 import { lazy } from 'react';
 
 const routers = [
@@ -28,6 +29,15 @@ const routers = [
   {
     path: '/contact',
     component: lazy(() => import('@pages/Contact')),
+  },
+  {
+    path: '/checkout',
+    component: lazy(() => import('@components/Checkout/Checkout')),
+  },
+
+  {
+    path: '/payment-result',
+    component: lazy(() => import('@components/Checkout/PaymentResult')),
   },
 ];
 

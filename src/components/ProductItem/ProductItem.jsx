@@ -1,4 +1,4 @@
-import { addProductToCart } from '@/apis/cartService';
+import { addProductToCart } from '@/api/cartService';
 import { OurShopContext } from '@/contexts/OurShopProvider';
 import { SideBarContext } from '@/contexts/SideBarProvider';
 import { ToastContext } from '@/contexts/ToastProvider';
@@ -75,7 +75,8 @@ function ProductItem({
         );
     };
 
-    const handleShowDetailProductSideBar = () => {
+    const handleShowDetailProductSideBar = (event) => {
+        event.stopPropagation();
         setIsOpen(true);
         setType('detail');
         setDetailProduct(details);
@@ -116,14 +117,14 @@ function ProductItem({
                 <img src={prevSrc} alt='' className={showImgWhenHover} />
 
                 <div className={showFncWhenHover}>
-                    <div className={boxIcon}>
+                    {/* <div className={boxIcon}>
                         <LiaShoppingBagSolid
                             style={{
                                 fontSize: '20px'
                             }}
                         />
-                    </div>
-                    <div className={boxIcon}>
+                    </div> */}
+                    {/* <div className={boxIcon}>
                         <CiHeart
                             style={{
                                 fontSize: '25px'
@@ -136,7 +137,7 @@ function ProductItem({
                                 fontSize: '20px'
                             }}
                         />
-                    </div>
+                    </div> */}
                     <div
                         className={boxIcon}
                         onClick={handleShowDetailProductSideBar}

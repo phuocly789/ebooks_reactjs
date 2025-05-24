@@ -1,3 +1,4 @@
+import ComingSoonWrapper from '@components/ComingSoonWrapper/ComingSoonWrapper';
 import styles from '../styles.module.scss';
 import fbIcon from '@icons/svgs/fbIcon.svg';
 import insIcon from '@icons/svgs/insIcon.svg';
@@ -19,7 +20,9 @@ function BoxIcon({ type, href }) {
 
     return (
         <div className={boxIcon}>
-            <img src={handleRenderIcon(type)} alt={type} />
+            <ComingSoonWrapper>
+                <img src={handleRenderIcon(type)} alt={type} />
+            </ComingSoonWrapper>
         </div>
     );
 }

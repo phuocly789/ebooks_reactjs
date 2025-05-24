@@ -20,7 +20,9 @@ function Banner() {
                         height: '200px',
                     }}
                 />
-                <div className={des}>
+                <div className={des} style={{ 
+                    marginLeft:'50px'
+                 }}>
                     Make yours celebrations even more special this years with
                     beautiful.
                 </div>
@@ -28,7 +30,7 @@ function Banner() {
                 <div
                     style={{
                         width: '172px',
-                        marginRight:'20px'
+                        marginLeft:'20px'
                     }}
                 >
                     <Button content={'Go to shop'} onClick={handleGoToShop}  />

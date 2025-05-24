@@ -1,4 +1,4 @@
-import { addProductToCart } from '@/apis/cartService';
+import { addProductToCart } from '@/api/cartService';
 export const handleAddProductToCartCommon = (
     userId,
     setIsOpen,

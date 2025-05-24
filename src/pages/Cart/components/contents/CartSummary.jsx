@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { SideBarContext } from '@/contexts/SideBarProvider';
 import LoadingCart from '@/pages/Cart/components/Loading';
 import PaymentMethods from '@components/PaymentMethods/PaymentMethods';
+import { useNavigate } from 'react-router-dom';
 
 const CartSummary = () => {
     const {
@@ -23,6 +24,7 @@ const CartSummary = () => {
     const total = listProductCart.reduce((acc, item) => {
         return acc + item.total;
     }, 0);
+    const navigate=useNavigate();
     const handleBackPreviousPage = () => {
         window.history.back();
     };
@@ -41,10 +43,10 @@ const CartSummary = () => {
                     <div>${total.toFixed(2)}</div>
                 </div>
 
-                <Button content={'PROCEED TO CHECKOUT'} />
+                <Button content={'PROCEED TO CHECKOUT'} onClick={() => navigate('/checkout')}/>
                 <div className={space} />
                 <Button content={'CONTINUE SHOPPING'} isPriamry={false} onClick={handleBackPreviousPage} />
-
+ 
                 {isLoading && <LoadingCart />}
             </div>
 

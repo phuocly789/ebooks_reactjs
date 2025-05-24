@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { ToastContext } from '@/contexts/ToastProvider';
-import { register, signIn, getInfo } from '@/apis/authService';
+import { register, signIn, getInfo } from '@/api/authService';
 import Cookies from 'js-cookie';
 import { SideBarContext } from '@/contexts/SideBarProvider';
 import { StoreContext } from '@/contexts/storeProvider';

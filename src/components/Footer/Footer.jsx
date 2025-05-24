@@ -1,6 +1,8 @@
 import { dataMenu } from '@components/Footer/constant';
 import styles from './styles.module.scss';
 import Logo from '@icons/images/Logo-retina.png';
+import ComingSoonWrapper from '@components/ComingSoonWrapper/ComingSoonWrapper';
+
 function MyFooter() {
     const { container, boxNav } = styles;
     return (
@@ -15,11 +17,18 @@ function MyFooter() {
             </div> */}
 
             <div className={boxNav}>
-                {dataMenu.map((item) => (
-                    <div>{item.content}</div>
+                {dataMenu.map((item, index) => (
+                    <div key={index}>
+                        {item.comingSoon ? (
+                            <ComingSoonWrapper>
+                                <a>{item.content}</a> 
+                            </ComingSoonWrapper>
+                        ) : (
+                            <a href={item.href}>{item.content}</a>
+                        )}
+                    </div>
                 ))}
             </div>
-
             <div>
                 <p
                     style={{

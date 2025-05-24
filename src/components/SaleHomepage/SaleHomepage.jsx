@@ -1,11 +1,15 @@
 import Button from '@components/Button/Button';
 import styles from './styles.module.scss';
 import useTranslateXImage from '@/hooks/useTranslateXImage';
+import { useNavigate } from 'react-router-dom';
 
 function SaleHomepage() {
     const { container, title, des, boxBtn, boxImage } = styles;
     const { translateXPosition } = useTranslateXImage();
-
+    const navigate=useNavigate();
+    const handleGoToShop = () => {
+        navigate('/shop');
+    }
     return (
         <div className={container}>
             <div
@@ -27,7 +31,7 @@ function SaleHomepage() {
                 </p>
 
                 <div className={boxBtn}>
-                    <Button content={'Read more'} isPriamry={false} />
+                    <Button content={'Read more'} isPriamry={false} onClick={handleGoToShop} />
                 </div>
             </div>
             <div

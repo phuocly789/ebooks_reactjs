@@ -1,0 +1,28 @@
+@import '@styles/variable.module.scss';
+@import '@styles/mixin.module.scss';
+
+.container {
+    background-image: url('https://thuamviet.com/photos/BLOG-TUYEN%20DUNG/CAM%20NANG/CN%20tong%20hop/Ti%E1%BB%83u%20s%E1%BB%AD%20ngh%E1%BB%87%20s%C4%A9/Jack/Jack%20t%C3%AAn%20th%E1%BA%ADt%20l%C3%A0%20Ph%C6%B0%C6%A1ng%20Tu%E1%BA%A5n%20anh%20t%E1%BB%ABng%20c%C3%B3%20th%E1%BB%9Di%20gian%20l%C3%A0m%20gi%C3%A1o%20vi%C3%AAn%20%C3%A2m%20nh%E1%BA%A1c.jpg');
+    height: 409px;
+    width: calc(100% / 2);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.containerTimmer {
+    @include flex_box_custom(center, center, 10px);
+}
+
+.title {
+    color: $four_color;
+    font-size: 28px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.boxBtn {
+    width: 172px;
+    margin-top: 20px;
+    margin: 20px auto;
+    text-align: center;
+}

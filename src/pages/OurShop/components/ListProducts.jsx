@@ -47,7 +47,7 @@ function ListProducts() {
                                         isLoadMore ? (
                                             <LoadingTextCommon />
                                         ) : (
-                                            'LOAD MORE PRODUCTS'
+                                            'Tai Them'
                                         )
                                     }
                                     onClick={handleLoadMore}
